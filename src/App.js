@@ -1,25 +1,44 @@
-import logo from './logo.svg';
 import './App.css';
+import api from './api';
+import React, { Component } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+class App extends Component{
+
+  state = {
+    filmes: [],
+  }
+
+  async componentDidMount(){
+    const response = await api.get('batman');
+   
+    //console.log(response.data);
+
+    this.setState({ filmes: response.data })
+  }
+
+  render(){
+
+     const {filmes} = this.state;
+
+
+    return(
+      <div className='Container'>
+        <h1 align="center">Movie List from API <strong>TVMaze.com</strong></h1>
+        <p className="p2">Search: Batman</p>
+       
+        {filmes.map(filme => (
+          <ol key={filme.show.id}>
+
+          <h2>{filme.show.name}</h2>
+          <p>{filme.show.url}</p>
+         
+           </ol>
+        ))}
+      </div>
+    );
+  }
+};
+
+
 
 export default App;

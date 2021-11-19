@@ -36,3 +36,28 @@
     transform: rotate(360deg);
   }
 }
+.Container{
+  margin: 10px;
+  padding: 10px;
+  list-style: none;
+  
+}
+
+h2 {
+  color: rgb(122, 10, 235);
+  font-size: large;
+}
+
+p {
+  background-color: antiquewhite;
+  padding: 5px;
+
+}
+.p2 {
+  background-color: rgb(174, 240, 240);
+  padding: 50px;
+  text-align: center;
+  font-weight: 900;
+    
+  
+}
